@@ -10,6 +10,3 @@ export default function ScrollToTop() {
 
   return null;
 }
-
-
- // for page reload   useEffect   scrollbar 
