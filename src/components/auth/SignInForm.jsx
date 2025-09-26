@@ -10,6 +10,7 @@ export default function SignInForm() {
     pendingCourseId,
     setPendingCourseId,
     closeAuthModal,
+    openAuthModal,
   } = useAuth();
   const navigate = useNavigate();
 
@@ -79,7 +80,7 @@ export default function SignInForm() {
 
   return (
     <div className="bg-white/10 p-6 rounded-2xl w-full max-w-md mx-auto mt-10">
-        <h2 className="text-2xl font-bold text-center mb-2">
+      <h2 className="text-2xl font-bold text-center mb-2">
         {forgotMode ? "Forgot Password 🔒" : "Welcome Back 👋"}
       </h2>
 
@@ -109,7 +110,7 @@ export default function SignInForm() {
         )}
 
         <button
-          type="button"
+          type="button" // <- important, not submit
           className="text-blue-500 text-sm hover:underline text-left"
           onClick={() => {
             setError("");
@@ -139,6 +140,7 @@ export default function SignInForm() {
 
           <div className="flex flex-col gap-3">
             <button
+              type="button" // <- important
               onClick={() => handleSocialLogin("Google")}
               className="flex items-center justify-center gap-2 border py-2 rounded-lg hover:bg-gray-50"
             >
@@ -149,7 +151,8 @@ export default function SignInForm() {
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}
             <button
-              onClick={() => navigate("/signup")}
+              type="button" // <- important
+              onClick={() => openAuthModal("signup")} // <- switch to signup modal
               className="text-blue-500 font-semibold hover:underline"
             >
               Sign Up

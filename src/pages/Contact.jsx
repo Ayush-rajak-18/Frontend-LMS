@@ -12,7 +12,7 @@ export default function Contact() {
 
   return (
     <div className="py-16 bg-gradient-to-b from-blue-50 to-white">
-      <div className="container px-12 max-w-3xl mx-auto">
+      <div className="container px-8 max-w-3xl mx-auto">
         <div className="bg-white/30 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100">
           <h2 className="text-3xl font-extrabold text-blue-950">
             Contact <span className="text-blue-400">Us</span>

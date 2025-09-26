@@ -12,7 +12,7 @@ export default function Feedback() {
 
   return (
     <div className="py-16 bg-gradient-to-b from-blue-50 to-white min-h-screen">
-      <div className="container px-12 max-w-xl mx-auto">
+      <div className="container px-8 max-w-xl mx-auto">
         <div className="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/50
                         transition-transform duration-500 transform translate-y-4 animate-slideIn">
           <h2 className="text-3xl font-extrabold text-blue-950">

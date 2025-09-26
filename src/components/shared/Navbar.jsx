@@ -81,7 +81,6 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              {/* Profile pic navigates to profile */}
               <button
                 onClick={() => navigate("/profile")}
                 className="h-10 w-10 rounded-full bg-blue-300 text-white flex items-center justify-center font-semibold"
@@ -89,8 +88,6 @@ export default function Navbar() {
               >
                 {user.name[0]?.toUpperCase()}
               </button>
-
-              {/* Logout button next to pic */}
               <button
                 onClick={() => logout()}
                 className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
@@ -110,54 +107,62 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown with click-away close */}
       {mobileOpen && (
-        <div className="md:hidden border-t bg-gray-100 px-6 py-4 space-y-4">
-          <div className="flex flex-col gap-4">{navLinks}</div>
+        <div
+          className="fixed inset-0 z-40 bg-black/20" // overlay
+          onClick={() => setMobileOpen(false)} // click outside closes menu
+        >
+          <div
+            className="absolute top-0 right-0 w-64 bg-white/90 backdrop-blur-sm shadow-lg p-6 flex flex-col gap-4 rounded-l-xl h-full"
+            onClick={(e) => e.stopPropagation()} // click inside doesn't close
+          >
+            <div className="flex flex-col  gap-4">{navLinks}</div>
 
-          {!isLoggedIn ? (
-            <div className="flex flex-col gap-3 pt-4">
-              <button
-                onClick={() => {
-                  openAuthModal("signin");
-                  setMobileOpen(false);
-                }}
-                className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
-              >
-                Login
-              </button>
-              <button
-                onClick={() => {
-                  openAuthModal("signup");
-                  setMobileOpen(false);
-                }}
-                className="px-4 py-2 rounded-lg border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
-              >
-                Sign Up
-              </button>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-2 pt-4">
-              <button
-                onClick={() => {
-                  navigate("/profile");
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
-              >
-                Profile
-              </button>
-              <button
-                onClick={() => {
-                  logout();
-                  setMobileOpen(false);
-                }}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
-              >
-                Logout
-              </button>
-            </div>
-          )}
+            {!isLoggedIn ? (
+              <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    openAuthModal("signin");
+                    setMobileOpen(false);
+                  }}
+                  className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => {
+                    openAuthModal("signup");
+                    setMobileOpen(false);
+                  }}
+                  className="px-4 py-2 rounded-lg border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
+                >
+                  Sign Up
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-2 pt-4 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    navigate("/profile");
+                    setMobileOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition"
+                >
+                  Profile
+                </button>
+                <button
+                  onClick={() => {
+                    logout();
+                    setMobileOpen(false);
+                  }}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg transition"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </nav>

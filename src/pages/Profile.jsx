@@ -25,7 +25,7 @@ export default function Profile() {
     setIsEditing(false);
   };
 
-  // Mock upcoming live classes
+  // Mock upcoming live classes & analytics
   const upcomingLiveClasses = enrolled
     .map((id) => {
       const c = courses.find((course) => course.id === id);
@@ -94,7 +94,7 @@ export default function Profile() {
             <div className="text-2xl font-bold text-blue-800">{enrolled.length}</div>
           </div>
           <div className="bg-white p-4 rounded-lg shadow text-center">
-            <div className="text-gray-500 text-sm">Total Progress</div>
+            <div className="text-gray-500 text-sm">Average Progress</div>
             <div className="text-2xl font-bold text-blue-800">
               {enrolled.length > 0 ? `${Math.round(
                 enrolled.reduce((sum, id) => sum + (user?.progress?.[id] || 0), 0) / enrolled.length
@@ -103,9 +103,7 @@ export default function Profile() {
           </div>
           <div className="bg-white p-4 rounded-lg shadow text-center">
             <div className="text-gray-500 text-sm">Certificates Earned</div>
-            <div className="text-2xl font-bold text-blue-800">{
-              user?.certificates?.length || 0
-            }</div>
+            <div className="text-2xl font-bold text-blue-800">{user?.certificates?.length || 0}</div>
           </div>
         </div>
 
@@ -120,42 +118,65 @@ export default function Profile() {
                 const course = courses.find((c) => c.id === id);
                 if (!course) return null;
                 const progressPercent = user?.progress?.[id] || 0;
+                const attendancePercent = user?.attendance?.[id] || 0;
                 return (
-                  <div key={id} className="bg-white shadow rounded-lg p-4 flex flex-col">
-                    <img
-                      src={course.img}
-                      alt={course.title}
-                      className="w-full h-40 object-cover rounded"
-                    />
-                    <h4 className="mt-2 font-semibold">{course.title}</h4>
+                  <div key={id} className="bg-white shadow-lg rounded-lg p-4 flex flex-col hover:shadow-2xl transition duration-300">
+                    <img src={course.img} alt={course.title} className="w-full h-40 object-cover rounded" />
+                    <h4 className="mt-2 font-semibold text-lg">{course.title}</h4>
                     <p className="text-gray-600 text-sm">{course.short}</p>
 
-                    {/* Progress */}
-                    <div className="w-full bg-gray-200 h-2 rounded-full mt-2">
-                      <div
-                        className="bg-green-600 h-2 rounded-full"
-                        style={{ width: `${progressPercent}%` }}
-                      ></div>
+                    {/* Progress Bar */}
+                    <div className="mt-3">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span>Progress</span>
+                        <span>{progressPercent}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 h-2 rounded-full">
+                        <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${progressPercent}%` }}></div>
+                      </div>
                     </div>
-                    <p className="text-sm text-gray-500 mt-1">Progress: {progressPercent}%</p>
 
-                    {/* Watch Full */}
-                    <button
-                      onClick={() => setOpenCourseId(course.id)}
-                      className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                    >
-                      Watch Full
-                    </button>
+                    {/* Attendance Bar */}
+                    <div className="mt-2">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span>Attendance</span>
+                        <span>{attendancePercent}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 h-2 rounded-full">
+                        <div className="bg-green-600 h-2 rounded-full" style={{ width: `${attendancePercent}%` }}></div>
+                      </div>
+                    </div>
 
-                    {/* Join Live Class */}
-                    {course.liveClassLink && (
+                    {/* Buttons */}
+                    <div className="mt-3 flex flex-col gap-2">
                       <button
-                        onClick={() => window.open(course.liveClassLink, "_blank")}
-                        className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                        onClick={() => setOpenCourseId(course.id)}
+                        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                       >
-                        Join Live Class
+                        Watch Full
                       </button>
-                    )}
+                      {course.liveClassLink && (
+                        <button
+                          onClick={() => window.open(course.liveClassLink, "_blank")}
+                          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                        >
+                          Join Live Class
+                        </button>
+                      )}
+                      {course.materials && course.materials.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          {course.materials.map((m, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => window.open(m.link, "_blank")}
+                              className="px-2 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 text-sm"
+                            >
+                              {m.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 );
               })}
@@ -186,7 +207,7 @@ export default function Profile() {
           </div>
         )}
 
-        {/* Certificates / Badges */}
+        {/* Certificates */}
         {user?.certificates?.length > 0 && (
           <div className="bg-white p-6 rounded-lg shadow">
             <h3 className="text-xl font-semibold mb-4">Your Certificates</h3>

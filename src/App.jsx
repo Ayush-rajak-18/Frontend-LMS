@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/shared/Navbar";
-import ScrollToTop from "./components/ui/ScrolltoTop";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import Footer from "./components/shared/Footer";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
