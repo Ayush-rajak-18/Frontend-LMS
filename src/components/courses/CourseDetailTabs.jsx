@@ -3,38 +3,82 @@ import React, { useState } from "react";
 export default function CourseDetailTabs({ syllabus = [], projects = [], reviews = [] }) {
   const [tab, setTab] = useState("overview");
 
+  const tabs = [
+    { id: "overview", label: "Overview" },
+    { id: "syllabus", label: "Syllabus" },
+    { id: "projects", label: "Projects" },
+    { id: "reviews", label: "Reviews" },
+  ];
+
   return (
-    <div>
-      <div className="flex gap-3 border-b">
-        <button onClick={() => setTab("overview")} className={`px-4 py-2 ${tab === "overview" ? "border-b-2 border-blue-600" : ""}`}>Overview</button>
-        <button onClick={() => setTab("syllabus")} className={`px-4 py-2 ${tab === "syllabus" ? "border-b-2 border-blue-600" : ""}`}>Syllabus</button>
-        <button onClick={() => setTab("projects")} className={`px-4 py-2 ${tab === "projects" ? "border-b-2 border-blue-600" : ""}`}>Projects</button>
-        <button onClick={() => setTab("reviews")} className={`px-4 py-2 ${tab === "reviews" ? "border-b-2 border-blue-600" : ""}`}>Reviews</button>
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      
+      {/* Tabs Navigation */}
+      <div className="flex overflow-x-auto gap-2 border-b border-gray-300 scrollbar-hide">
+        {tabs.map(t => (
+          <button
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            className={`flex-shrink-0 px-4 py-2 font-medium transition-all duration-300
+                        ${tab === t.id ? "border-b-4 border-blue-600 text-blue-700" : "text-gray-600 hover:text-blue-600"}`}
+          >
+            {t.label}
+          </button>
+        ))}
       </div>
 
+      {/* Tab Content */}
       <div className="mt-6">
-        {tab === "overview" && <p className="text-gray-700">This course covers essential topics and hands-on projects to learn real skills.</p>}
+        {tab === "overview" && (
+          <div className="bg-white shadow rounded-lg p-6 text-gray-700">
+            <p className="text-base sm:text-lg">
+              This course covers essential topics and hands-on projects to help you learn real skills.
+            </p>
+          </div>
+        )}
+
         {tab === "syllabus" && (
-          <ul className="list-disc list-inside text-gray-700">
-            {syllabus.map((s, i) => <li key={i}>{s}</li>)}
-          </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            {syllabus.map((s, i) => (
+              <div key={i} className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <span className="font-semibold text-gray-800">{i + 1}.</span> {s}
+              </div>
+            ))}
+          </div>
         )}
+
         {tab === "projects" && (
-          <ul className="list-disc list-inside text-gray-700">
-            {projects.map((p, i) => <li key={i}>{p}</li>)}
-          </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            {projects.map((p, i) => (
+              <div key={i} className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <span className="font-semibold text-gray-800">{i + 1}.</span> {p}
+              </div>
+            ))}
+          </div>
         )}
+
         {tab === "reviews" && (
-          <div className="space-y-4">
+          <div className="space-y-4 mt-4">
             {reviews.map((r, i) => (
-              <div key={i} className="p-4 border rounded">
-                <div className="font-semibold">{r.name} • {Array(r.rating).fill("★").join("")}</div>
-                <div className="text-sm text-gray-700 mt-1">{r.text}</div>
+              <div key={i} className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-gray-800">{r.name}</span>
+                  <span className="text-yellow-500">{Array(r.rating).fill("★").join("")}</span>
+                </div>
+                <p className="text-gray-700 text-sm sm:text-base">{r.text}</p>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {/* Scrollbar hide for mobile */}
+      <style>
+        {`
+          .scrollbar-hide::-webkit-scrollbar { display: none; }
+          .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        `}
+      </style>
     </div>
   );
 }
