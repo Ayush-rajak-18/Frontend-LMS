@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/shared/Navbar";
-import ScrollToTop from "./components/ui/ScrollToTop";
 import Footer from "./components/shared/Footer";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
@@ -17,8 +16,7 @@ import { useAuth } from "./context/AuthContext";
 import Modal from "./components/ui/Modal";
 import SignInForm from "./components/auth/SignInForm";
 import SignUpForm from "./components/auth/SignUpForm";
-
-
+import EnquiryFormModal from "./pages/EnquiryFormModal";
 
 export default function App() {
   const { showAuthModal, authModalMode, closeAuthModal } = useAuth();
@@ -26,9 +24,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-
-      <ScrollToTop />
-
+    
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -46,6 +42,8 @@ export default function App() {
 
       <Footer />
 
+       <EnquiryFormModal />
+
       {/* Global Auth Modal */}
       <Modal isOpen={showAuthModal} onClose={closeAuthModal}>
         {authModalMode === "signin" ? <SignInForm /> : <SignUpForm />}
@@ -53,4 +51,3 @@ export default function App() {
     </div>
   );
 }
-   

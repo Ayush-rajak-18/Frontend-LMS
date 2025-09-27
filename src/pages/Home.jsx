@@ -7,11 +7,13 @@ import Testimonials from "../components/home/Testimonials";
 import ContactPreview from "../components/home/ContactPreview";
 import FAQ from "../components/home/FAQ"; 
 
+
 export default function Home() {
   return (
     <>
       <Hero />
       <WhyChooseUs />
+       
       <FeaturedCourses />
       <Offers />
       <Testimonials />

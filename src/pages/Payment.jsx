@@ -89,7 +89,7 @@ export default function Payment() {
             </div>
           </div>
 
-          {/* Action Buttons */}
+          
           <div className="mt-6 flex flex-col md:flex-row gap-4">
             <button
               onClick={handlePay}

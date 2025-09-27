@@ -26,23 +26,32 @@ export default function CourseDetail() {
     <div className="min-h-screen bg-blue-50 flex flex-col py-16">
       <div className="container px-6 flex-1 flex flex-col md:flex-row gap-8">
         {/* Left/Main Section */}
-        <div className="md:flex-1 flex flex-col space-y-6">
+        <div className="md:flex-1 flex flex-col space-y-6 relative">
+          {/* Trending Badge */}
+          {course.featured && (
+            <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">
+              TRENDING
+            </span>
+          )}
+
+          {/* Course Image */}
           <img
             src={course.img}
             alt={course.title}
             className="rounded-md w-full object-cover shadow-md"
           />
+
           <h2 className="text-3xl font-bold text-gray-800">{course.title}</h2>
           <p className="text-gray-600">{course.short}</p>
 
-          {/* Tabs: Overview / Syllabus / Projects / Reviews */}
+        
           <CourseDetailTabs
             syllabus={course.syllabus}
             projects={course.projects}
             reviews={course.reviews}
           />
 
-          {/* Video + PDF */}
+        
           <div className="flex flex-col md:flex-row gap-6 mt-4">
             <VideoPDFPlayer
               videos={course.videos}
@@ -50,13 +59,12 @@ export default function CourseDetail() {
               className="flex-1"
             />
 
-            {/* Live Class */}
             {course.liveClassLink && (
               <div className="flex-shrink-0 mt-4 md:mt-0">
                 <a
                   href={course.liveClassLink}
                   target="_blank"
-                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
                 >
                   Join Live Class
                 </a>
@@ -65,7 +73,7 @@ export default function CourseDetail() {
           </div>
         </div>
 
-        {/* Right/Sidebar Section */}
+        {/* Sidebar Section */}
         <aside className="md:w-96 bg-gradient-to-b from-blue-200 to-white p-6 rounded-lg shadow-lg space-y-4 border border-gray-200 flex-shrink-0">
           <div className="font-semibold text-xl text-gray-800">₹{course.price}</div>
           <div className="text-sm text-gray-700">{course.duration} • {course.level}</div>
@@ -73,13 +81,13 @@ export default function CourseDetail() {
           <div className="flex flex-col gap-3 mt-4">
             <button
               onClick={handleEnroll}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             >
               Enroll Now
             </button>
             <button
               onClick={() => navigate("/contact")}
-              className="px-4 py-2 border rounded hover:bg-gray-50"
+              className="px-4 py-2 border rounded hover:bg-gray-50 transition"
             >
               Contact Support
             </button>

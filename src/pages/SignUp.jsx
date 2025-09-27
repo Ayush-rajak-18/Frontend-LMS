@@ -1,3 +1,4 @@
+// only for fronted use  signup form outer model
 import React from "react";
 import SignUpForm from "../components/auth/SignUpForm";
 
