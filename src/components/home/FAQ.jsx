@@ -35,7 +35,7 @@ export default function FAQ() {
   return (
     <section className="py-16 bg-gradient-to-tr from-gray-100 to-blue-100">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold text-blue-900 mb-12 uppercase ">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-4 text-left">
           {faqs.map((faq, i) => (
             <div

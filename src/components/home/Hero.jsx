@@ -10,7 +10,6 @@ export default function Hero() {
       style={{ backgroundImage: `url(${HeroBg})` }}
     >
       <div className="container px-6 flex flex-col md:flex-row items-center gap-10 bg-black/20 p-6 rounded-xl">
-        {/* Left Side */}
         <div className="md:w-1/2">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             Learn Development & Security with{" "}
@@ -36,7 +35,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="md:w-1/2 flex justify-center">
           <div className="bg-white/93 rounded-xl shadow-lg p-4 w-full http://localhost:5173/courses max-w-md">
             <img
@@ -57,7 +55,7 @@ export default function Hero() {
                   View Courses
                 </Link>
                 <a
-                  href="#contact"
+                  href="/Contact"
                   className="px-4 py-2 border rounded-md  bg-blue-500 font-semibold"
                 >
                   Contact

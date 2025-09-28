@@ -6,18 +6,20 @@ import Offers from "../components/home/Offers";
 import Testimonials from "../components/home/Testimonials";
 import ContactPreview from "../components/home/ContactPreview";
 import FAQ from "../components/home/FAQ"; 
+import AboutSection from "./AboutSection";
 
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <WhyChooseUs />
-       
-      <FeaturedCourses />
       <Offers />
+      <WhyChooseUs />
+      <FeaturedCourses />
+      
       <Testimonials />
       <FAQ /> 
+      <AboutSection />
       <ContactPreview />
     </>
   );

@@ -36,39 +36,15 @@ export default function Footer() {
           </ul>
         </div>
 
-        
-
-         <div className="bg-gradient-to-br from-gray-500 to-bluet-500 p-6 rounded-xl shadow-lg">
-          <h4 className="text-white text-lg font-semibold mb-4">
-            Connect with Us
-          </h4>
-          <form className="space-y-4">
+        <div>
+          <h4 className="text-white font-semibold">Subscribe</h4>
+          <p className="text-sm mt-2">Get updates about new batches & offers.</p>
+          <form className="mt-3 flex">
             <input
-              type="text"
-              placeholder="Name*"
-              className="w-full p-3 rounded-md bg-white/85 text-black focus:outline-none"
+              className="p-2 rounded-l-md bg-white/90 w-full text-black focus:outline-none"
+              placeholder="Email address"
             />
-            <input
-              type="email"
-              placeholder="Email*"
-              className="w-full p-3 rounded-md bg-white/85 text-black focus:outline-none"
-            />
-            <input
-              type="text"
-              placeholder="Mobile*"
-              className="w-full p-3 rounded-md bg-white/85 text-black focus:outline-none"
-            />
-            <textarea
-              placeholder="Message*"
-              rows="3"
-              className="w-full p-3 rounded-md bg-white/85 text-black focus:outline-none"
-            ></textarea>
-            <button
-              type="submit"
-              className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-md"
-            >
-              Submit
-            </button>
+            <button className="px-3 py-2 bg-blue-600 rounded-r-md hover:bg-blue-700 transition">Join</button>
           </form>
         </div>
       </div>
@@ -78,4 +54,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+} 

@@ -63,7 +63,7 @@ const courses = [
     pdfs: [],
     liveClassLink: "https://zoom.us/j/3333333333",
     liveClassTime: { type: "always" },  // Always available
-    featured: false,
+    featured: true,
   },
   {
     id: "cl1",
@@ -80,7 +80,7 @@ const courses = [
     pdfs: [],
     liveClassLink: "",  // No live class
     liveClassTime: { type: "none" },
-    featured: false,
+    featured: true,
   },
   {
     id: "pg1",

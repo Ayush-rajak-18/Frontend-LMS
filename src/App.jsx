@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
 import Home from "./pages/Home";
+import ScrollTop from "./components/ui/ScrollTop";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
 import SignInPage from "./pages/SignIn";
@@ -18,12 +19,20 @@ import SignInForm from "./components/auth/SignInForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EnquiryFormModal from "./pages/EnquiryFormModal";
 
+import AboutPage from "./pages/AboutPage"; 
+
+// for slider ke liye its doesnt affect
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export default function App() {
   const { showAuthModal, authModalMode, closeAuthModal } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+
+      <ScrollTop /> 
     
       <main className="flex-1">
         <Routes>
@@ -37,6 +46,7 @@ export default function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
 

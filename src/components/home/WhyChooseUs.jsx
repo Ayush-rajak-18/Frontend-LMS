@@ -1,13 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { 
-  FaChalkboardTeacher, 
-  FaProjectDiagram, 
-  FaHandsHelping, 
-  FaGraduationCap, 
-  FaLightbulb, 
-  FaUsers, 
-  FaRocket, 
-  FaRupeeSign 
+  FaChalkboardTeacher, FaProjectDiagram, FaHandsHelping, 
+  FaGraduationCap, FaLightbulb, FaUsers, FaRocket, FaRupeeSign 
 } from "react-icons/fa";
 
 import ExpertImg from "../pictures/expert.jpg";
@@ -20,86 +14,91 @@ import RocketImg from "../pictures/Rocket.jpg";
 import FeeImg from "../pictures/Fee.png";
 
 export default function WhyChooseUs() {
+  const scrollRef = useRef(null);
+
   const items = [
-    { icon: FaChalkboardTeacher, title: "Expert Instructors", desc: "Learn from industry professionals.", bgImg: ExpertImg, direction: "left", gradient: "linear-gradient(45deg, #ff6b6b, #f06595)" },
-    { icon: FaProjectDiagram, title: "Practical Projects", desc: "Work on real-world projects.", bgImg: ProjectImg, direction: "bottom", gradient: "linear-gradient(45deg, #6bc1ff, #00d4ff)" },
-    { icon: FaHandsHelping, title: "24/7 Support", desc: "Get help anytime from mentors.", bgImg: SupportImg, direction: "right", gradient: "linear-gradient(45deg, #ffda6b, #ffc107)" },
-    { icon: FaGraduationCap, title: "Career Guidance", desc: "Boost your career.", bgImg: GraduationImg, direction: "left", gradient: "linear-gradient(45deg, #6bffb3, #00c853)" },
-    { icon: FaLightbulb, title: "Innovative Learning", desc: "Enhance creativity.", bgImg: LightbulbImg, direction: "bottom", gradient: "linear-gradient(45deg, #d46bff, #7e57c2)" },
-    { icon: FaUsers, title: "Community Support", desc: "Connect globally.", bgImg: UsersImg, direction: "right", gradient: "linear-gradient(45deg, #ff8c42, #ff5722)" },
-    { icon: FaRocket, title: "Fast Learning", desc: "Accelerate knowledge.", bgImg: RocketImg, direction: "left", gradient: "linear-gradient(45deg, #42a5f5, #1e88e5)" },
-    { icon: FaRupeeSign, title: "Affordable Fees", desc: "Flexible pricing.", bgImg: FeeImg, direction: "bottom", gradient: "linear-gradient(45deg, #ff7043, #ff3d00)" },
+    { icon: FaChalkboardTeacher, title: "Expert Instructors", desc: "Learn from industry professionals.", bgImg: ExpertImg, gradient: "linear-gradient(45deg, #ff6b6b, #f06595)" },
+    { icon: FaProjectDiagram, title: "Practical Projects", desc: "Work on real-world projects.", bgImg: ProjectImg, gradient: "linear-gradient(45deg, #6bc1ff, #00d4ff)" },
+    { icon: FaHandsHelping, title: "24/7 Support", desc: "Get help anytime from mentors.", bgImg: SupportImg, gradient: "linear-gradient(45deg, #ffda6b, #ffc107)" },
+    { icon: FaGraduationCap, title: "Career Guidance", desc: "Boost your career.", bgImg: GraduationImg, gradient: "linear-gradient(45deg, #6bffb3, #00c853)" },
+    { icon: FaLightbulb, title: "Innovative Learning", desc: "Enhance creativity.", bgImg: LightbulbImg, gradient: "linear-gradient(45deg, #d46bff, #7e57c2)" },
+    { icon: FaUsers, title: "Community Support", desc: "Connect globally.", bgImg: UsersImg, gradient: "linear-gradient(45deg, #ff8c42, #ff5722)" },
+    { icon: FaRocket, title: "Fast Learning", desc: "Accelerate knowledge.", bgImg: RocketImg, gradient: "linear-gradient(45deg, #42a5f5, #1e88e5)" },
+    { icon: FaRupeeSign, title: "Affordable Fees", desc: "Flexible pricing.", bgImg: FeeImg, gradient: "linear-gradient(45deg, #ff7043, #ff3d00)" },
   ];
 
-  const getAnimationClass = (dir) => {
-    switch(dir){
-      case "left": return "animate-slide-left";
-      case "right": return "animate-slide-right";
-      default: return "animate-slide-bottom";
-    }
-  };
+   useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const interval = setInterval(() => {
+      const card = container.querySelector("div > div"); 
+      if (card) {
+        const cardWidth = card.offsetWidth + 16; 
+        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+
+        if (
+          container.scrollLeft + container.offsetWidth >=
+          container.scrollWidth - cardWidth
+        ) {
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-12" style={{ background: "linear-gradient(to bottom right, #a2ffcdff, #89ecfeff)" }}>
+    <section className="py-16 bg-gradient-to-br from-green-200 via-blue-100 to-purple-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl font-bold mb-10">Why Choose Us</h2>
+        <h2 className="text-4xl font-bold mb-12  tracking-widest text-blue-900 uppercase ">Why Choose Us</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-4 cursor-grab active:cursor-grabbing scroll-smooth rounded-3xl scrollbar-hide"
+        >
           {items.map((item, i) => {
             const IconComponent = item.icon;
             return (
               <div
                 key={i}
-                className={`relative p-3 rounded-xl overflow-hidden bg-white shadow-lg
-                           hover:shadow-2xl hover:-translate-y-1 hover:scale-105 transform transition-all duration-700
-                           ${getAnimationClass(item.direction)}`}
+                className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-6 rounded-3xl shadow-2xl transform transition-all duration-700 hover:scale-105 hover:-translate-y-1"
                 style={{
+                  minHeight: "250px",
                   backgroundImage: `url(${item.bgImg})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  animationDelay: `${i*150}ms`,
-                  minHeight: "160px",
-                  height: "auto"
                 }}
               >
-                <div className="relative z-10 p-3 flex flex-col items-center justify-start h-full bg-white/70 rounded-xl">
-                  
-                  {/* Colorful circular icon */}
-                  <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-full shadow-lg text-white text-xl hover:scale-110 transition-transform duration-500"
-                       style={{ background: item.gradient }}>
+                <div className="relative z-10 p-6 flex flex-col items-center justify-center h-full bg-white/80 rounded-2xl animate-fadeIn">
+                  <div
+                    className="w-16 h-16 mb-4 flex items-center justify-center rounded-full shadow-lg text-white text-2xl"
+                    style={{ background: item.gradient }}
+                  >
                     <IconComponent />
                   </div>
 
-                  <h3 className="text-base sm:text-sm font-semibold mb-1">{item.title}</h3>
-                  <p className="text-gray-700 text-xs sm:text-[10px]">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-700 text-sm">{item.desc}</p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
 
       <style>
         {`
-          .animate-slide-left { animation: slideLeft 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
-          .animate-slide-right { animation: slideRight 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
-          .animate-slide-bottom { animation: slideBottom 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; }
-
-          @keyframes slideLeft {
-            0% { opacity:0; transform:translateX(-40px);}
-            100%{ opacity:1; transform:translateX(0);}
+          @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9);}
+            100% { opacity: 1; transform: scale(1);}
           }
-          @keyframes slideRight {
-            0% { opacity:0; transform:translateX(40px);}
-            100%{ opacity:1; transform:translateX(0);}
-          }
-          @keyframes slideBottom {
-            0% { opacity:0; transform:translateY(40px);}
-            100%{ opacity:1; transform:translateY(0);}
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out forwards;
           }
         `}
       </style>
     </section>
-  )
+  );
 }
