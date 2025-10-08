@@ -28,7 +28,7 @@ export default function TeamSection() {
   return (
     <section
       id="team"
-      className="py-16 bg-gray-50 bg-gradient-to-r from-purple-100 via-blue-100 to-green-50"
+      className="py-16 bg-gray-50 bg-gradient-to-r from-purple-100 via-blue-100 to-purple-100"
     >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-indigo-900 uppercase mb-12">

@@ -7,7 +7,7 @@ export default function AboutSection() {
   return (
     <section
       id="home-about"
-      className="py-24 bg-gradient-to-r from-purple-100 via-blue-100 to-green-50"
+      className="py-24 bg-gradient-to-r from-purple-100 via-blue-100 to-purple-100"
     >
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
 

@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-green-200 via-blue-100 to-purple-100">
+    <section className="py-16 bg-gradient-to-br from-gray-200 via-blue-100 to-purple-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-bold mb-12  tracking-widest text-blue-900 uppercase ">Why Choose Us</h2>
 

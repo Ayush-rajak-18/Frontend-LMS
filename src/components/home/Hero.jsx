@@ -10,7 +10,7 @@ export default function Hero() {
       className="py-20 text-white bg-cover bg-center"
       style={{ backgroundImage: `url(${HeroBg})` }}
     >
-      <div className="container px-6 flex flex-col md:flex-row items-center gap-10 bg-black/20 p-6 rounded-xl">
+      <div className="container px-6 flex flex-col md:flex-row items-center gap-10 bg-black/10 p-6 rounded-xl">
         {/* Left Text */}
         <motion.div
           className="md:w-1/2"

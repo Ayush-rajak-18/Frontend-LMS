@@ -36,7 +36,7 @@ export default function Offers() {
   return (
     <section
       id="offers"
-      className="py-16 bg-gradient-to-r from-indigo-200 to-green-100"
+      className="py-16 bg-gradient-to-r from-indigo-100 to-blue-100"
     >
       <div className="container px-6">
         <h3 className="text-3xl font-bold text-center flex items-center justify-center gap-2 text-indigo-900 uppercase">

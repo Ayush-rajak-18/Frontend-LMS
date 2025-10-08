@@ -5,7 +5,7 @@ import AboutBg from "../assets/aboutbg.jpg";
 
 export default function AboutPage() {
   return (
-    <div className="bg-gradient-to-r from-purple-100 via-blue-100 to-green-50">
+    <div className="bg-gradient-to-r from-purple-100 via-blue-100 to-purple-100">
 
         <div
         className="relative h-72 flex items-center justify-center"
@@ -33,7 +33,7 @@ export default function AboutPage() {
           At THE TECH DEVSEC, we don’t just build software—we build futures.
         </p>
       </div>
-           <div className="bg-gradient-to-r from-indigo-200 to-green-100 py-12">
+           <div className="bg-indigo-200  py-12">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-blue-800">
           <div>
             <h3 className="text-4xl font-extrabold">500+</h3>
