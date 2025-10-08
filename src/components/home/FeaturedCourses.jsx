@@ -30,7 +30,7 @@ export default function FeaturedCourses() {
   if (featured.length === 0) return null;
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-gray-200">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl text-center font-bold tracking-widest text-blue-900  uppercase ">
           Latest From Courses
@@ -56,8 +56,8 @@ export default function FeaturedCourses() {
         <div className="text-center mt-12 mb-6">
           <a
             href="/Courses"
-            className="inline-block px-8 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-md 
-                       hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+            className="inline-block px-8 py-3 text-lg font-medium text-white bg-blue-700 rounded-lg shadow-md 
+                       hover:bg-blue-900 transition duration-300 transform hover:scale-105"
           >
             Explore All Courses →
           </a>

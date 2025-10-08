@@ -1,6 +1,6 @@
 // src/components/TeamSection.jsx
 import React, { useRef, useEffect, useState } from "react";
-import teamMembers from "../data/TeamMembers"; // your team data
+import teamMembers from "../data/TeamMembers";
 
 export default function TeamSection() {
   const scrollRef = useRef(null);
@@ -26,7 +26,10 @@ export default function TeamSection() {
   }, [currentIndex]);
 
   return (
-    <section id="team" className="py-16 bg-gray-50">
+    <section
+      id="team"
+      className="py-16 bg-gray-50 bg-gradient-to-r from-purple-100 via-blue-100 to-green-50"
+    >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-indigo-900 uppercase mb-12">
           MEET OUR TEAM
@@ -34,12 +37,12 @@ export default function TeamSection() {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth gap-6 snap-x snap-mandatory scrollbar-hide"
+          className="flex overflow-x-auto scroll-smooth rounded-3xl gap-6 snap-x snap-mandatory scrollbar-hide"
         >
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="flex-shrink-0 w-full snap-center p-6 rounded-3xl bg-white shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              className="flex-shrink-0 w-full snap-center p-6 rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:-translate-y-2"
             >
               <div className="flex flex-col items-center justify-center p-6 rounded-2xl">
                 <div className="w-36 h-36 mb-4 rounded-full overflow-hidden bg-gradient-to-tr from-purple-500 to-blue-500 p-1">

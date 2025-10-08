@@ -8,7 +8,7 @@ export default function SignUpForm() {
   const { signup, pendingCourseId, setPendingCourseId, closeAuthModal, openAuthModal } = useAuth();
   const navigate = useNavigate();
 
-  const [fullName, setFullName] = useState(""); // new field
+  const [fullName, setFullName] = useState(""); 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -19,14 +19,14 @@ export default function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    if (!fullName.trim()) return setError("Enter full name"); // validation for full name
+    if (!fullName.trim()) return setError("Enter full name"); 
     if (!username.trim()) return setError("Enter username");
     if (!email.includes("@")) return setError("Enter valid email");
     if (password.length < 4) return setError("Password too short");
 
     setLoading(true);
     setTimeout(() => {
-      signup({ name: fullName, username, email }); 
+      signup({ name: fullName, username, email, phone }); 
       setLoading(false);
       if (pendingCourseId) {
         navigate("/payment", { state: { courseId: pendingCourseId } });

@@ -11,9 +11,9 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-16 bg-gradient-to-b from-blue-50 to-white">
+    <div className="py-16 bg-gradient-to-b from-blue-100 to-white">
       <div className="container px-8 max-w-3xl mx-auto">
-        <div className="bg-white/30 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100">
+        <div className="bg-gradient-to-r from-purple-100 via-blue-100 to-green-100 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-gray-100">
           <h2 className="text-3xl font-extrabold text-blue-950">
             Contact <span className="text-blue-400">Us</span>
           </h2>
@@ -56,6 +56,8 @@ export default function Contact() {
                   <option value="backend">Backend Development</option>
                   <option value="devops">DevOps</option>
                   <option value="cloud">Cloud Computing</option>
+                    <option value="cloud">Data Science</option>
+                      <option value="cloud">Networking</option>
                   <option value="fullstack">Full Stack Development</option>
                 </select>
               </div>

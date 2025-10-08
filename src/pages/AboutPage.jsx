@@ -5,9 +5,9 @@ import AboutBg from "../assets/aboutbg.jpg";
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-purple-100 via-blue-100 to-green-50">
 
-           <div
+        <div
         className="relative h-72 flex items-center justify-center"
         style={{
           backgroundImage: `url(${AboutBg})`,
@@ -19,9 +19,9 @@ export default function AboutPage() {
         <h1 className="relative text-5xl font-bold text-white tracking-wider z-10">
           ABOUT US
         </h1>
-      </div>
+      </div >
 
-          <div className="container mx-auto px-6 py-20">
+          <div className="container mx-auto px-6 py-20 ">
         <h2 className="text-3xl font-bold mb-6 text-gray-900">
           ABOUT <span className="text-blue-600">THE TECH DEVSEC</span>
         </h2>
@@ -32,6 +32,26 @@ export default function AboutPage() {
           We value people & hands-on learning through internship programs. 
           At THE TECH DEVSEC, we don’t just build software—we build futures.
         </p>
+      </div>
+           <div className="bg-gradient-to-r from-indigo-200 to-green-100 py-12">
+        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-blue-800">
+          <div>
+            <h3 className="text-4xl font-extrabold">500+</h3>
+            <p className="mt-2 text-lg">Learners Trained</p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-extrabold">50+</h3>
+            <p className="mt-2 text-lg">Projects Completed</p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-extrabold">20+</h3>
+            <p className="mt-2 text-lg">Expert Mentors</p>
+          </div>
+          <div>
+            <h3 className="text-4xl font-extrabold">10+</h3>
+            <p className="mt-2 text-lg">Startup Collaborations</p>
+          </div>
+        </div>
       </div>
 
      

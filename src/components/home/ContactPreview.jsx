@@ -16,12 +16,12 @@ export default function ContactPreview() {
           <div className="mt-4 space-y-3">
             <div className="flex items-center gap-3 text-gray-700">
               <Mail size={20} className="text-blue-600" />
-              <span>ayu@google.com</span>
+              <span>thetechdevsec@gmail.com</span>
             </div>
 
             <div className="flex items-center gap-3 text-gray-700">
               <Phone size={20} className="text-blue-600" />
-              <span>+91 7070785412</span>
+              <span>+91 9336395934</span>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function ContactPreview() {
         <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow hover:bg-blue-700 transition"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white font-semibold rounded-xl shadow hover:bg-blue-900 transition"
           >
             Open Contact Form →
           </Link>

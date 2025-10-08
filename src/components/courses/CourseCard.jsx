@@ -18,7 +18,7 @@ export default function CourseCard({ course }) {
 
   return (
     <div
-      className={`relative flex flex-col h-full bg-white rounded-xl shadow-md transition-transform transform hover:-translate-y-2 hover:shadow-2xl border ${
+      className={`relative flex flex-col bg-white rounded-xl shadow-md transition-transform transform hover:-translate-y-2 hover:shadow-2xl border ${
         course.featured ? "border-yellow-400" : "border-gray-300"
       }`}
     >
@@ -30,18 +30,22 @@ export default function CourseCard({ course }) {
       )}
 
       {/* Image */}
-      <div className="h-36 w-full overflow-hidden rounded-t-xl">
+      <div className="w-full flex items-center justify-center bg-gray-50 rounded-t-xl">
         <img
           src={course.img}
           alt={course.title}
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-contain"
         />
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-4 flex flex-col">
-        <h4 className="text-lg font-semibold text-gray-800 line-clamp-2">{course.title}</h4>
-        <p className="text-sm text-gray-600 mt-1 flex-1 line-clamp-3">{course.short}</p>
+      <div className="p-4 flex flex-col flex-1">
+        <h4 className="text-lg font-semibold text-gray-800 line-clamp-2">
+          {course.title}
+        </h4>
+        <p className="text-sm text-gray-600 mt-1 flex-1 line-clamp-3">
+          {course.short}
+        </p>
 
         {/* Info & Buttons */}
         <div className="mt-3 flex items-center justify-between">
@@ -58,18 +62,11 @@ export default function CourseCard({ course }) {
             </Link>
             <button
               onClick={handleEnroll}
-              className="px-3 py-1 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition"
+              className="px-3 py-1 bg-blue-700 text-white rounded-md text-sm hover:bg-blue-900 transition"
             >
               Enroll
             </button>
-            {course.liveClassLink && isLoggedIn && (
-              <button
-                className="px-3 py-1 bg-green-600 text-white rounded-md text-sm hover:bg-green-700 transition"
-                onClick={() => window.open(course.liveClassLink, "_blank")}
-              >
-                Join Live Class
-              </button>
-            )}
+           
           </div>
         </div>
       </div>

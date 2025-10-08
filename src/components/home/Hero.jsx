@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeroBg from "../pictures/tech-bg.jpg"; // hero background
-import CoursePreview from "../pictures/devsecops.jpg"; // course preview image
+import { motion } from "framer-motion";
+import HeroBg from "../pictures/techhuman.jpg"; // hero background
+import CoursePreview from "../pictures/coding.gif"; // course preview image
 
 export default function Hero() {
   return (
@@ -10,61 +11,82 @@ export default function Hero() {
       style={{ backgroundImage: `url(${HeroBg})` }}
     >
       <div className="container px-6 flex flex-col md:flex-row items-center gap-10 bg-black/20 p-6 rounded-xl">
-        <div className="md:w-1/2">
+        {/* Left Text */}
+        <motion.div
+          className="md:w-1/2"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            Learn Development & Security with{" "}
+            Learn Hack → Build → Secure → Deploy with{" "}
             <span className="text-red-600">practical projects</span>
           </h1>
           <p className="mt-4 text-gray-100 max-w-xl">
-            Live classes, recordings, projects, and interview prep to land your first job.
+            Development, Cybersecurity, Cloud, Networking, Data Science & DevOps—hands-on projects, live classes, and career-ready training.
           </p>
+        </motion.div>
 
-          <div className="mt-6 flex gap-3">
-            <Link
-              to="/courses"
-              className="px-5 py-3 rounded-lg font-semibold text-black bg-green-400 hover:bg-green-500 transition"
-            >
-              Explore Courses
-            </Link>
-            <a
-              href="#offers"
-              className="px-5 py-3 border rounded-lg bg-blue-400 text-black font-semibold"
-            >
-              View Offers
-            </a>
-          </div>
-        </div>
-
-        <div className="md:w-1/2 flex justify-center">
-          <div className="bg-white/93 rounded-xl shadow-lg p-4 w-full http://localhost:5173/courses max-w-md">
-            <img
+        {/* Right Course Preview */}
+        <motion.div
+          className="md:w-1/2 flex justify-center"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <motion.div
+            className="bg-white/35 rounded-xl border-1 border-red-900 shadow-lg p-4 w-full max-w-md"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
+            <motion.img
               src={CoursePreview}
               alt="Course Preview"
-              className="w-full h-64 md:h-40 rounded-md object-cover"
+              className="w-full h-64 md:h-40 rounded-md border-1 border-red-900 object-cover"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8 }}
             />
             <div className="mt-4">
-              <h3 className="text-black font-semibold">Featured: Zero to Hero</h3>
-              <p className="text-sm text-gray-900 mt-2">
-                Hands-on course covering Development, Security and Cloud.
-              </p>
-              <div className="mt-4 flex gap-3">
+              <motion.h3
+                className="text-black font-semibold"
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                Featured: Zero to Hero
+              </motion.h3>
+              <motion.p
+                className="text-sm text-gray-900 mt-2"
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+               All-in-One Tech Learning Platform.
+              </motion.p>
+              <motion.div
+                className="mt-4 flex gap-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
                 <Link
                   to="/courses"
-                  className="px-4 py-2 rounded-md font-semibold text-white bg-green-500 hover:bg-green-600 transition"
+                  className="px-4 py-2 rounded-md font-semibold text-white bg-green-600 hover:bg-green-700 transition"
                 >
                   View Courses
                 </Link>
                 <a
                   href="/Contact"
-                  className="px-4 py-2 border rounded-md  bg-blue-500 font-semibold"
+                  className="px-4 py-2 rounded-md bg-blue-700 font-semibold hover:bg-blue-900 transition"
                 >
                   Contact
                 </a>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
-}
+} 

@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
                   backgroundPosition: "center",
                 }}
               >
-                <div className="relative z-10 p-6 flex flex-col items-center justify-center h-full bg-white/80 rounded-2xl animate-fadeIn">
+                <div className="relative z-10 p-6 flex flex-col items-center justify-center h-full bg-white/50 rounded-2xl animate-fadeIn">
                   <div
                     className="w-16 h-16 mb-4 flex items-center justify-center rounded-full shadow-lg text-white text-2xl"
                     style={{ background: item.gradient }}

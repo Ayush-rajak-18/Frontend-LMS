@@ -27,7 +27,7 @@ const EnquiryFormModal = () => {
           ✕
         </button>
 
-        <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">
+        <h2 className="text-3xl font-bold text-center mb-6 text-indigo-800">
            Enquiry Form
         </h2>
         <p className="text-center text-gray-500 mb-6">

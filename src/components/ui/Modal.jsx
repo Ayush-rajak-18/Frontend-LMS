@@ -8,7 +8,7 @@ export default function Modal({ isOpen, onClose, children }) {
       <div
         className="w-full max-w-md mx-4 p-3 rounded-3xl relative flex flex-col"
         style={{
-          background: "linear-gradient(to bottom left, #bddcffff, #f8dbecff)", // light blue → light pink
+          background: "linear-gradient(to bottom left, #bddcffff, #f8dbecff)",
         }}
       >
     

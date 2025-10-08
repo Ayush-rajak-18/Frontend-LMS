@@ -1,24 +1,29 @@
-// for global login  
-
 import React, { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null); // {name,email}
+  const [user, setUser] = useState(null); // {name, username, email, phone, ...}
   const [enrolled, setEnrolled] = useState([]); // course ids
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authModalMode, setAuthModalMode] = useState("signin"); // 'signin' | 'signup'
   const [pendingCourseId, setPendingCourseId] = useState(null);
 
-  const login = ({ name, email }) => {
-    setUser({ name, email });
+  // LOGIN
+  const login = ({ name, username, email, phone }) => {
+    setUser({ name, username, email, phone });
     setShowAuthModal(false);
   };
 
-  const signup = ({ name, email }) => {
-    setUser({ name, email });
+  // SIGNUP
+  const signup = ({ name, username, email, phone }) => {
+    setUser({ name, username, email, phone });
     setShowAuthModal(false);
+  };
+
+  // UPDATE USER (edit profile)
+  const updateUser = (updatedData) => {
+    setUser((prev) => ({ ...prev, ...updatedData }));
   };
 
   const logout = () => {
@@ -53,6 +58,7 @@ export function AuthProvider({ children }) {
         enrolled,
         login,
         signup,
+        updateUser,  // added
         logout,
         enrollCourse,
         showAuthModal,
@@ -71,4 +77,3 @@ export function AuthProvider({ children }) {
 export function useAuth() {
   return useContext(AuthContext);
 }
-
