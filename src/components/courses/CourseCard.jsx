@@ -6,13 +6,19 @@ export default function CourseCard({ course }) {
   const navigate = useNavigate();
   const { isLoggedIn, openAuthModal, setPendingCourseId, enrollCourse } = useAuth();
 
+  // Discounted Price Calculation
+  const discount = course.discount || 0;
+  const discountedPrice = discount
+    ? Math.round(course.price - (course.price * discount) / 100)
+    : course.price;
+
   const handleEnroll = () => {
     if (!isLoggedIn) {
       setPendingCourseId(course.id);
       openAuthModal("signin", course.id);
     } else {
-      enrollCourse(course.id);
-      navigate("/payment", { state: { courseId: course.id } });
+      enrollCourse(course.id, discountedPrice);
+      navigate("/payment", { state: { courseId: course.id, price: discountedPrice } });
     }
   };
 
@@ -31,28 +37,33 @@ export default function CourseCard({ course }) {
 
       {/* Image */}
       <div className="w-full flex items-center justify-center bg-gray-50 rounded-t-xl">
-        <img
-          src={course.img}
-          alt={course.title}
-          className="w-full h-auto object-contain"
-        />
+        <img src={course.img} alt={course.title} className="w-full h-auto object-contain" />
       </div>
 
       {/* Content */}
       <div className="p-4 flex flex-col flex-1">
-        <h4 className="text-lg font-semibold text-gray-800 line-clamp-2">
-          {course.title}
-        </h4>
-        <p className="text-sm text-gray-600 mt-1 flex-1 line-clamp-3">
-          {course.short}
-        </p>
+        <h4 className="text-lg font-semibold text-gray-800 line-clamp-2">{course.title}</h4>
+        <p className="text-sm text-gray-600 mt-1 flex-1 line-clamp-3">{course.short}</p>
 
         {/* Info & Buttons */}
         <div className="mt-3 flex items-center justify-between">
           <div>
             <div className="text-sm text-gray-500">{course.level}</div>
-            <div className="font-semibold text-gray-800">₹{course.price}</div>
+
+            {/* Price */}
+            {discount > 0 ? (
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center gap-2">
+                  <span className="line-through text-gray-400 text-sm">₹{course.price}</span>
+                  <span className="text-green-600 font-bold">₹{discountedPrice}</span>
+                </div>
+                <span className="text-red-500 text-xs font-semibold">({discount}% OFF)</span>
+              </div>
+            ) : (
+              <div className="font-semibold text-gray-800">₹{course.price}</div>
+            )}
           </div>
+
           <div className="flex flex-col gap-2">
             <Link
               to={`/course/${course.id}`}
@@ -66,7 +77,6 @@ export default function CourseCard({ course }) {
             >
               Enroll
             </button>
-           
           </div>
         </div>
       </div>

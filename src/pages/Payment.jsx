@@ -12,6 +12,12 @@ export default function Payment() {
   const [processing, setProcessing] = useState(false);
   const [upiId, setUpiId] = useState("");
 
+  // ✅ Discount Calculation
+  const discount = course?.discount || 0;
+  const discountedPrice = course
+    ? Math.round(course.price - (course.price * discount) / 100)
+    : 0;
+
   useEffect(() => {
     if (!course) {
       // no course selected
@@ -33,7 +39,7 @@ export default function Payment() {
     }
     setProcessing(true);
     setTimeout(() => {
-      enrollCourse(course.id);
+      enrollCourse(course.id); // discounted price used in payment backend if needed
       setProcessing(false);
       alert(`Payment successful via UPI (${upiId})! Course enrolled.`);
       navigate("/profile");
@@ -46,13 +52,24 @@ export default function Payment() {
         <div className="bg-white rounded-xl shadow-lg p-8">
           <h2 className="text-3xl font-bold text-blue-900 text-center">Checkout</h2>
 
+          {/* Course Info with Discount */}
           <div className="mt-6 border border-gray-200 p-6 rounded-lg shadow-sm bg-blue-50">
             <div className="flex justify-between items-center">
               <div>
                 <div className="font-semibold text-lg text-blue-800">{course.title}</div>
                 <div className="text-sm text-gray-600 mt-1">{course.short}</div>
               </div>
-              <div className="font-bold text-blue-900 text-lg">₹{course.price}</div>
+              <div className="flex flex-col items-end">
+                {discount > 0 ? (
+                  <>
+                    <span className="line-through text-gray-400 text-sm">₹{course.price}</span>
+                    <span className="text-green-600 font-bold text-lg">₹{discountedPrice}</span>
+                    <span className="text-red-500 text-xs font-semibold">({discount}% OFF)</span>
+                  </>
+                ) : (
+                  <span className="font-bold text-blue-900 text-lg">₹{course.price}</span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -89,14 +106,14 @@ export default function Payment() {
             </div>
           </div>
 
-          
+          {/* Payment Buttons */}
           <div className="mt-6 flex flex-col md:flex-row gap-4">
             <button
               onClick={handlePay}
               disabled={processing}
               className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-800 hover:to-blue-600 transition"
             >
-              {processing ? "Processing..." : `Pay ₹${course.price}`}
+              {processing ? "Processing..." : `Pay ₹${discountedPrice}`}
             </button>
             <button
               onClick={() => navigate(-1)}

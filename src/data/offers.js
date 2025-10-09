@@ -1,13 +1,14 @@
 const offers = [
-  { id: 1, title: "Flat ₹399 Only", desc: "Grab selected courses at just ₹399", code: "first buy" },
-  { id: 2, title: "Flat ₹499 Only", desc: "Special price for beginner courses", code: "this month only" },
-  { id: 3, title: "Flat ₹599 Only", desc: "Intermediate courses at best price", code: "limited time only" },
-  { id: 4, title: "Flat ₹699 Only", desc: "Advanced courses now discounted", code: " this month only" },
-  { id: 5, title: "Mega 80% OFF", desc: "Limited time launch offer", code: "till 30 oct" },
-  { id: 6, title: "Maha save", desc: "Buy 2 courses and save 40%", code: "diwali offer" },
-  
 
+  { id: 1, title: "25% OFF", desc: "Save on selected beginner courses", code: "first buy valid till 30 Oct" },
+  { id: 2, title: "30% OFF", desc: "Special discount for this month", code: "this month only valid till 31 Oct" },
+  { id: 3, title: "50% OFF", desc: "Mid-level courses at half price", code: "limited time only valid till 15 Nov" },
+  { id: 4, title: "60% OFF", desc: "Advanced courses now discounted", code: "this month only valid till 30 Nov" },
+  { id: 5, title: "80% OFF", desc: "Mega launch offer", code: "till 30 Oct" },
+  { id: 6, title: "40% OFF", desc: "Buy 2 courses and save more", code: "diwali offer valid till 5 Nov" }
 ];
+
+
 
 
 

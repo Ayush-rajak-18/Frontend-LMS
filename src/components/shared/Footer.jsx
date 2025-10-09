@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaWhatsapp, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Logo from "../pictures/logo.png"; 
 
 export default function Footer() {
@@ -18,11 +18,14 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-4 mt-4">
-            <a href="#" className="text-blue-600 hover:text-blue-500"><FaFacebook size={24} /></a>
+            <a href="https://wa.me/qr/RHFSTC5XIBQOO1"  target="_blank"  rel="noopener noreferrer"  className="text-green-500 hover:text-green-400"
+>
+  <FaWhatsapp size={24} />
+</a>
             <a href="#" className="text-sky-400 hover:text-sky-300"><FaTwitter size={24} /></a>
-            <a href="#" className="text-pink-500 hover:text-pink-400"><FaInstagram size={24} /></a>
-            <a href="#" className="text-blue-700 hover:text-blue-600"><FaLinkedin size={24} /></a>
-            <a href="#" className="text-red-600 hover:text-red-500"><FaYoutube size={24} /></a>
+            <a href="https://www.instagram.com/thetechdevsec?igsh=MXFhMDN3NWZmZ2Z6cw==" className="text-pink-500 hover:text-pink-400"><FaInstagram size={24} /></a>
+            <a href="https://www.linkedin.com/in/thetech-devsec-082780389?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-blue-700 hover:text-blue-600"><FaLinkedin size={24} /></a>
+            <a href="https://youtube.com/@digitaliottechnology271?si=3NrtT3GIlRcjuiEv" className="text-red-600 hover:text-red-500"><FaYoutube size={24} /></a>
           </div>
         </div>
 

@@ -19,15 +19,37 @@ export default function Hero() {
           transition={{ duration: 1 }}
         >
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            Learn Hack → Build → Secure → Deploy with{" "}
+           <span className="text-red-600">Learn</span>  Hack → Build → Secure → Deploy with{" "}
             <span className="text-red-600">practical projects</span>
           </h1>
           <p className="mt-4 text-gray-100 max-w-xl">
             Development, Cybersecurity, Cloud, Networking, Data Science & DevOps—hands-on projects, live classes, and career-ready training.
           </p>
+
+          {/* Buttons under text */}
+          <motion.div
+            className="mt-6 flex gap-3 flex-wrap"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <Link
+              to="/courses"
+              className="px-4 py-2 rounded-md font-semibold text-white bg-green-600 hover:bg-green-700 transition"
+            >
+              View Courses
+            </Link>
+            <a
+              href="/Contact"
+              className="px-4 py-2 rounded-md bg-blue-700 font-semibold hover:bg-blue-900 transition"
+            >
+              Contact
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Right Course Preview */}
+        
         <motion.div
           className="md:w-1/2 flex justify-center"
           initial={{ opacity: 0, x: 50 }}
@@ -35,21 +57,21 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.3 }}
         >
           <motion.div
-            className="bg-white/35 rounded-xl border-1 border-red-900 shadow-lg p-4 w-full max-w-md"
+            className="bg-white/35 rounded-xl border border-red-900 shadow-lg p-4 w-full max-w-sm md:max-w-lg"
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 100 }}
           >
             <motion.img
               src={CoursePreview}
               alt="Course Preview"
-              className="w-full h-64 md:h-40 rounded-md border-1 border-red-900 object-cover"
+              className="w-full h-72 md:h-64 rounded-md border border-red-900 object-cover"
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8 }}
             />
-            <div className="mt-4">
+            <div className="mt-4 text-center md:text-left">
               <motion.h3
-                className="text-black font-semibold"
+                className="text-black font-semibold text-lg md:text-xl"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
@@ -57,36 +79,17 @@ export default function Hero() {
                 Featured: Zero to Hero
               </motion.h3>
               <motion.p
-                className="text-sm text-gray-900 mt-2"
+                className="text-sm md:text-base text-gray-900 mt-2"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-               All-in-One Tech Learning Platform.
+                All-in-One Tech Learning Platform.
               </motion.p>
-              <motion.div
-                className="mt-4 flex gap-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Link
-                  to="/courses"
-                  className="px-4 py-2 rounded-md font-semibold text-white bg-green-600 hover:bg-green-700 transition"
-                >
-                  View Courses
-                </Link>
-                <a
-                  href="/Contact"
-                  className="px-4 py-2 rounded-md bg-blue-700 font-semibold hover:bg-blue-900 transition"
-                >
-                  Contact
-                </a>
-              </motion.div>
             </div>
           </motion.div>
         </motion.div>
       </div>
     </section>
   );
-} 
+}

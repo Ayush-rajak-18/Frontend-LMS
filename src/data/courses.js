@@ -10,12 +10,50 @@ import dataAnalyticsImg from "../components/pictures/courseig/dataanalystics.jpe
 import dataScienceImg from "../components/pictures/courseig/dtascience.jpeg";
 import OSINT from "../components/pictures/courseig/OSINT.jpeg";
 import linux from "../components/pictures/courseig/linuxadmin.jpeg";
+
+
 const courses = [
+
   {
+  id: "linux1",
+  title: "Linux Administration",
+  short: "Become a professional Linux Administrator by mastering system setup, configuration, and server management.",
+  price: 599,
+  discount: 50, // 50% discount
+  level: "Beginner → Advanced",
+  duration: "100+ hours",
+  img: linux,
+  category: "DevOps",
+  syllabus: [
+    "Linux Installation & Setup",
+    "User & Group Management",
+    "File Systems & Permissions",
+    "Networking & Security",
+    "Shell Scripting & Automation",
+    "Service Management & Troubleshooting"
+  ],
+  projects: ["Server Setup Lab", "Automation Scripts", "System Monitoring Dashboard"],
+  reviews: [
+    { name: "Amit", rating: 5, text: "Linux concepts are explained clearly and practically." }
+  ],
+  videos: [
+    { title: "Introduction to Linux Administration", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
+    { title: "Shell Scripting Basics", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" }
+  ],
+  pdfs: [
+    { title: "Linux Admin Handbook", file: "/pdfs/linuxadmin.pdf", type: "pdf" }
+  ],
+  liveClassLink: "https://zoom.us/j/1111111111",
+  liveClassTime: { type: "scheduled", date: "25 Oct 2025", time: "6:00 PM" },
+  featured: true,
+},
+
+{
     id: "cs1",
     title: "Cyber Security (Advanced)",
     short: "Master advanced cybersecurity concepts, ethical hacking, and threat mitigation.",
     price: 699,
+    discount: 30, // 30% discount
     level: "Intermediate → Advanced",
     duration: "120+ hours",
     img: cyberImg,
@@ -33,9 +71,7 @@ const courses = [
       { title: "Introduction to Ethical Hacking", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
       { title: "Advanced Threat Analysis", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" }
     ],
-    pdfs: [
-      { title: "Cyber Security Guide", file: "/pdfs/cybersecurity.pdf", type: "pdf" }
-    ],
+    pdfs: [{ title: "Cyber Security Guide", file: "/pdfs/cybersecurity.pdf", type: "pdf" }],
     liveClassLink: "https://zoom.us/j/1010101010",
     liveClassTime: { type: "scheduled", date: "daily", time: "" },
     featured: true,
@@ -45,6 +81,7 @@ const courses = [
     title: "Network Security",
     short: "Learn how to secure networks, configure firewalls, and monitor traffic effectively.",
     price: 599,
+    discount: 25, // 25% discount
     level: "Beginner → Advanced",
     duration: "100+ hours",
     img: networkImg,
@@ -71,6 +108,7 @@ const courses = [
     title: "CCNA",
     short: "Complete Cisco Certified Network Associate (CCNA) preparation from scratch.",
     price: 499,
+    discount: 50, // 50% discount
     level: "Beginner → Intermediate",
     duration: "90+ hours",
     img: ccnaImg,
@@ -95,6 +133,7 @@ const courses = [
     title: "Cloud Computing",
     short: "Learn cloud concepts, services, and deployment strategies for AWS, Azure, and GCP.",
     price: 599,
+    discount: 30, // 30% discount
     level: "Beginner → Advanced",
     duration: "110+ hours",
     img: cloudImg,
@@ -119,6 +158,7 @@ const courses = [
     title: "SOC Analyst",
     short: "Become a Security Operations Center (SOC) analyst and monitor cyber threats professionally.",
     price: 599,
+    discount: 30, // 30% discount
     level: "Intermediate → Advanced",
     duration: "100+ hours",
     img: socImg,
@@ -143,6 +183,7 @@ const courses = [
     title: "Frontend Developer",
     short: "Learn HTML, CSS, JavaScript, and modern frameworks to build beautiful websites.",
     price: 499,
+    discount: 50, // 50% discount
     level: "Beginner → Advanced",
     duration: "120+ hours",
     img: frontendImg,
@@ -161,6 +202,7 @@ const courses = [
     title: "Backend Developer",
     short: "Learn Node.js, Express, Databases, and server-side programming for real-world apps.",
     price: 499,
+    discount: 50, // 50% discount
     level: "Beginner → Advanced",
     duration: "100+ hours",
     img: backendImg,
@@ -179,6 +221,7 @@ const courses = [
     title: "Full Stack Development",
     short: "Combine frontend and backend skills to build complete web applications.",
     price: 699,
+    discount: 30, // 30% discount
     level: "Beginner → Advanced",
     duration: "150+ hours",
     img: fullstackImg,
@@ -197,6 +240,7 @@ const courses = [
     title: "Data Analytics",
     short: "Analyze data using Python, Excel, SQL, and visualization tools for business insights.",
     price: 599,
+    discount: 25, // 25% discount
     level: "Beginner → Advanced",
     duration: "100+ hours",
     img: dataAnalyticsImg,
@@ -215,6 +259,7 @@ const courses = [
     title: "Data Science",
     short: "Learn Python, statistics, machine learning, and data visualization for data science projects.",
     price: 799,
+    discount: 30, // 30% discount
     level: "Intermediate → Advanced",
     duration: "150+ hours",
     img: dataScienceImg,
@@ -229,47 +274,45 @@ const courses = [
     featured: true,
   },
   {
-  id: "cyber2",
-  title: "OSINT + VAPT + Bug Bounty",
-  short: "Master Open Source Intelligence, Vulnerability Assessment, Penetration Testing, and Bug Bounty hunting in one complete course.",
-  price: 799,
-  level: "Intermediate → Advanced",
-  duration: "150+ hours",
-  img: OSINT, // Use any suitable image
-  category: "Cyber Security",
-  syllabus: [
-    "OSINT Tools & Techniques",
-    "Social Media & Domain Reconnaissance",
-    "Dark Web Research",
-    "Vulnerability Assessment Basics",
-    "Penetration Testing Methodologies",
-    "Web & Network Security Testing",
-    "Bug Bounty Hunting Techniques",
-    "Reporting & Remediation"
-  ],
-  projects: [
-    "OSINT Investigation Report",
-    "Network Pen Test Simulation",
-    "Bug Bounty Live Hunt"
-  ],
-  reviews: [
-    { name: "Rohan", rating: 5, text: "Practical and comprehensive course covering all advanced cyber topics." }
-  ],
-  videos: [
-    { title: "Introduction to OSINT", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
-    { title: "VAPT Basics", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
-    { title: "Bug Bounty Essentials", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" }
-  ],
-  pdfs: [
-    { title: "Complete Cyber Security Guide", file: "/pdfs/cybersecurity.pdf", type: "pdf" }
-  ],
-  liveClassLink: "https://zoom.us/j/1010101010",
-  liveClassTime: { type: "scheduled", date: "25 Oct 2025", time: "6:00 PM" },
-  featured: true,
-},
+    id: "cyber2",
+    title: "OSINT + VAPT + Bug Bounty",
+    short: "Master Open Source Intelligence, Vulnerability Assessment, Penetration Testing, and Bug Bounty hunting in one complete course.",
+    price: 799,
+    discount: 90, // 90% discount (special offer)
+    level: "Intermediate → Advanced",
+    duration: "150+ hours",
+    img: OSINT,
+    category: "Cyber Security",
+    syllabus: [
+      "OSINT Tools & Techniques",
+      "Social Media & Domain Reconnaissance",
+      "Dark Web Research",
+      "Vulnerability Assessment Basics",
+      "Penetration Testing Methodologies",
+      "Web & Network Security Testing",
+      "Bug Bounty Hunting Techniques",
+      "Reporting & Remediation"
+    ],
+    projects: [
+      "OSINT Investigation Report",
+      "Network Pen Test Simulation",
+      "Bug Bounty Live Hunt"
+    ],
+    reviews: [
+      { name: "Rohan", rating: 5, text: "Practical and comprehensive course covering all advanced cyber topics." }
+    ],
+    videos: [
+      { title: "Introduction to OSINT", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
+      { title: "VAPT Basics", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" },
+      { title: "Bug Bounty Essentials", url: "https://www.youtube.com/embed/dQw4w9WgXcQ", type: "video" }
+    ],
+    pdfs: [{ title: "Complete Cyber Security Guide", file: "/pdfs/cybersecurity.pdf", type: "pdf" }],
+    liveClassLink: "https://zoom.us/j/1010101010",
+    liveClassTime: { type: "scheduled", date: "25 Oct 2025", time: "6:00 PM" },
+    featured: true,
+  },
 
-
-
+  
 
 ];
 

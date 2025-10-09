@@ -54,7 +54,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2">
             <img src={Logo} alt="Logo" className="h-10 w-auto" />
             <span className="hidden sm:inline text-sm text-gray-600">
-              Development • Cloud • Security
+              Development • Cloud • Security • Data
             </span>
           </Link>
         </div>
@@ -110,14 +110,14 @@ export default function Navbar() {
       {/* Mobile dropdown with click-away close */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/20" // overlay
+          className="fixed inset-0 z-40 bg-black/30" // overlay
           onClick={() => setMobileOpen(false)} // click outside closes menu
         >
           <div
-            className="absolute top-0 right-0 w-64 bg-white/90 backdrop-blur-sm shadow-lg p-6 flex flex-col gap-4 rounded-l-xl h-full"
+            className="absolute top-0 right-0 w-64 bg-white/60 backdrop-blur-sm shadow-lg p-6 flex flex-col gap-4 rounded-l-xl h-full"
             onClick={(e) => e.stopPropagation()} // click inside doesn't close
           >
-            <div className="flex flex-col  gap-4">{navLinks}</div>
+            <div className="flex flex-col gap-4">{navLinks}</div>
 
             {!isLoggedIn ? (
               <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">

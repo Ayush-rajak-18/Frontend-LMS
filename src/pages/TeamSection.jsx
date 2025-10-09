@@ -53,7 +53,17 @@ export default function TeamSection() {
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-gray-600 text-sm">{member.role}</p>
+                    {member.isLead && (
+                    <span className="text-xs bg-yellow-500 text-white px-2 py-0.5 rounded-full font-semibold">
+                      Team Lead
+                    </span>
+                  )}
+              <p className="text-gray-600 text-sm">{member.role}</p>
+                {member.experience && (
+                  <p className="text-gray-500 text-sm mt-1">
+                    {member.experience}+ years experience
+                  </p>
+                )}
               </div>
             </div>
           ))}

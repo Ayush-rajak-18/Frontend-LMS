@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function CourseDetailTabs({ syllabus = [], projects = [], reviews = [] }) {
   const [tab, setTab] = useState("overview");
+  const [openIndex, setOpenIndex] = useState(null); // for syllabus accordion
 
   const tabs = [
     { id: "overview", label: "Overview" },
@@ -10,9 +11,13 @@ export default function CourseDetailTabs({ syllabus = [], projects = [], reviews
     { id: "reviews", label: "Reviews" },
   ];
 
+  const toggleSyllabus = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      
+
       {/* Tabs Navigation */}
       <div className="flex overflow-x-auto gap-2 border-b border-gray-300 scrollbar-hide">
         {tabs.map(t => (
@@ -38,10 +43,26 @@ export default function CourseDetailTabs({ syllabus = [], projects = [], reviews
         )}
 
         {tab === "syllabus" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+          <div className="space-y-2 mt-4">
             {syllabus.map((s, i) => (
-              <div key={i} className="bg-white shadow rounded-lg p-4 hover:shadow-lg transition">
-                <span className="font-semibold text-gray-800">{i + 1}.</span> {s}
+              <div
+                key={i}
+                className="border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition"
+              >
+                <button
+                  onClick={() => toggleSyllabus(i)}
+                  className="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-800 focus:outline-none"
+                >
+                  <span>{i + 1}. {s.title || s}</span>
+                  <span className="text-blue-500">
+                    {openIndex === i ? "−" : "+"}
+                  </span>
+                </button>
+                {openIndex === i && (
+                  <div className="p-4 border-t border-gray-200 text-gray-700 text-sm sm:text-base">
+                    {s.details || "No details available for this topic."}
+                  </div>
+                )}
               </div>
             ))}
           </div>
