@@ -6,7 +6,7 @@ import img4 from "./student/manojsingh.jpeg";
 import img5 from "./student/poojathakur.jpeg";
 import img6 from "./student/ragni.jpeg";
 import img7 from "./student/vaishali yadav.jpeg";
-import img8 from "./student/princepatel.jpeg";
+import img8 from "./Princepatel.jpeg";
 
 const testimonials = [
   {
