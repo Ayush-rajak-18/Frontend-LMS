@@ -11,39 +11,52 @@ export default function Navbar() {
 
   const navLinks = (
     <>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? "text-blue-600 font-medium" : "text-gray-700"
-        }
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/courses"
-        className={({ isActive }) =>
-          isActive ? "text-blue-600 font-medium" : "text-gray-700"
-        }
-      >
-        Courses
-      </NavLink>
-      <NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          isActive ? "text-blue-600 font-medium" : "text-gray-700"
-        }
-      >
-        Contact
-      </NavLink>
-      <NavLink
-        to="/feedback"
-        className={({ isActive }) =>
-          isActive ? "text-blue-600 font-medium" : "text-gray-700"
-        }
-      >
-        Feedback
-      </NavLink>
-    </>
+  <NavLink
+    to="/"
+    className={({ isActive }) =>
+      isActive ? "text-blue-600 font-medium" : "text-gray-700"
+    }
+  >
+    Home
+  </NavLink>
+
+  <NavLink
+    to="/courses"
+    className={({ isActive }) =>
+      isActive ? "text-blue-600 font-medium" : "text-gray-700"
+    }
+  >
+    Courses
+  </NavLink>
+
+  <NavLink
+    to="/blogs"   // <-- Blogs link added
+    className={({ isActive }) =>
+      isActive ? "text-blue-600 font-medium" : "text-gray-700"
+    }
+  >
+    Blogs
+  </NavLink>
+
+  <NavLink
+    to="/contact"
+    className={({ isActive }) =>
+      isActive ? "text-blue-600 font-medium" : "text-gray-700"
+    }
+  >
+    Contact
+  </NavLink>
+
+  <NavLink
+    to="/feedback"
+    className={({ isActive }) =>
+      isActive ? "text-blue-600 font-medium" : "text-gray-700"
+    }
+  >
+    Feedback
+  </NavLink>
+</>
+
   );
 
   return (

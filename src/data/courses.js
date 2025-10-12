@@ -18,8 +18,8 @@ const courses = [
   id: "linux1",
   title: "Linux Administration",
   short: "Become a professional Linux Administrator by mastering system setup, configuration, and server management.",
-  price: 5999,
-  discount: 75, // 50% discount
+  price: 3999,
+  discount: 25, // 50% discount
   level: "Beginner → Advanced",
   duration: "100+ hours",
   img: linux,
@@ -98,7 +98,7 @@ const courses = [
   id: "cs1",
   title: "Cyber Security (Advanced)",
   short: "Master advanced cybersecurity concepts, ethical hacking, and threat mitigation.",
-  price: 34999,
+  price: 15996,
   discount: 75, // 30% discount
   level: "Intermediate → Advanced",
   duration: "120+ hours",
@@ -189,8 +189,8 @@ const courses = [
   id: "ns1",
   title: "Network Security",
   short: "Learn how to secure networks, configure firewalls, and monitor traffic effectively.",
-  price: 24000,
-  discount: 75, // 25% discount
+  price: 4665,
+  discount: 25, // 25% discount
   level: "Beginner → Advanced",
   duration: "100+ hours",
   img: networkImg,
@@ -263,8 +263,8 @@ const courses = [
   id: "ccna1",
   title: "CCNA",
   short: "Complete Cisco Certified Network Associate (CCNA) preparation from scratch.",
-  price: 4999,
-  discount: 30, // 50% discount
+  price: 2665,
+  discount: 25, // 50% discount
   level: "Beginner → Intermediate",
   duration: "90+ hours",
   img: ccnaImg,
@@ -313,8 +313,8 @@ const courses = [
   id: "cloud1",
   title: "Cloud ",
   short: "Learn cloud concepts, services, and deployment strategies for AWS, Azure, and GCP.",
-  price: 24999,
-  discount: 70, // 30% discount
+  price: 3999,
+  discount: 25, // 30% discount
   level: "Beginner → Advanced",
   duration: "110+ hours",
   img: cloudImg,
@@ -376,8 +376,8 @@ const courses = [
   id: "soc1",
   title: "SOC Analyst",
   short: "Become a Security Operations Center (SOC) analyst and monitor cyber threats professionally.",
-  price: 5999,
-  discount: 30, // 30% discount
+  price: 9332,
+  discount: 25, // 30% discount
   level: "Intermediate → Advanced",
   duration: "100+ hours",
   img: socImg,
@@ -438,8 +438,8 @@ const courses = [
   id: "fe1",
   title: "Frontend Developer",
   short: "Learn HTML, CSS, JavaScript, and modern frameworks to build beautiful websites.",
-  price: 3000,
-  discount:55, // 50% discount
+  price: 1998,
+  discount:50, // 50% discount
   level: "Beginner → Advanced",
   duration: "120+ hours",
   img: frontendImg,
@@ -500,7 +500,7 @@ const courses = [
   id: "be1",
   title: "Backend Developer",
   short: "Learn Node.js, Express, Databases, and server-side programming for real-world apps.",
-  price: 3999,
+  price: 3998,
   discount: 50, // 50% discount
   level: "Beginner → Advanced",
   duration: "100+ hours",
@@ -561,8 +561,8 @@ const courses = [
   id: "fsd1",
   title: "Full Stack Development",
   short: "Combine frontend and backend skills to build complete modern web applications.",
-  price: 9999,
-  discount: 30, // 30% discount
+  price: 15996,
+  discount: 75, // 30% discount
   level: "Beginner → Advanced",
   duration: "150+ hours",
   img: fullstackImg,
@@ -634,8 +634,8 @@ const courses = [
   id: "da1",
   title: "Data Analytics",
   short: "Analyze data using Python, Excel, SQL, and visualization tools for business insights.",
-  price: 14999,
-  discount: 50, // 25% discount
+  price: 11996,
+  discount: 75, // 25% discount
   level: "Beginner → Advanced",
   duration: "100+ hours",
   img: dataAnalyticsImg,
@@ -699,8 +699,8 @@ const courses = [
   id: "ds1",
   title: "Data Science",
   short: "Learn Python, statistics, machine learning, and data visualization for data science projects.",
-  price: 44999,
-  discount: 70, // 30% discount
+  price: 19996,
+  discount: 75, // 30% discount
   level: "Intermediate → Advanced",
   duration: "150+ hours",
   img: dataScienceImg,
@@ -772,8 +772,8 @@ const courses = [
   id: "cyber2",
   title: "OSINT + VAPT + Bug Bounty",
   short: "Master Open Source Intelligence, Vulnerability Assessment, Penetration Testing, and Bug Bounty hunting in one complete course.",
-  price: 49990,
-  discount: 90, // 90% discount (special offer)
+  price: 13998,
+  discount: 50, // 90% discount (special offer)
   level: "Intermediate → Advanced",
   duration: "150+ hours",
   img: OSINT,
