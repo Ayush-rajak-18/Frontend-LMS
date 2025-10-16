@@ -30,7 +30,7 @@ export default function Navbar() {
   </NavLink>
 
   <NavLink
-    to="/blogs"   // <-- Blogs link added
+    to="/blog"   // <-- Blogs link added
     className={({ isActive }) =>
       isActive ? "text-blue-600 font-medium" : "text-gray-700"
     }

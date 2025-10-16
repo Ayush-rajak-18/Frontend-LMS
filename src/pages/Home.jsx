@@ -7,6 +7,7 @@ import Testimonials from "../components/home/Testimonials";
 import ContactPreview from "../components/home/ContactPreview";
 import FAQ from "../components/home/FAQ"; 
 import AboutSection from "./AboutSection";
+import HomeBlogSection from "./HomeBlogSection"
 
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       <Offers />
       <WhyChooseUs />
       <FeaturedCourses />
-      
+      <HomeBlogSection />
       <Testimonials />
       <FAQ /> 
       <AboutSection />

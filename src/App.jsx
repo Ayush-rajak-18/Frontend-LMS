@@ -18,6 +18,8 @@ import Modal from "./components/ui/Modal";
 import SignInForm from "./components/auth/SignInForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import EnquiryFormModal from "./pages/EnquiryFormModal";
+import BlogPage from "./pages/BlogPage";
+import BlogDetail from "./pages/BlogDetail";
 
 
 import AboutPage from "./pages/AboutPage"; 
@@ -48,6 +50,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/about" element={<AboutPage />} />
+           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
         </Routes>
       </main>
 
