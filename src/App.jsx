@@ -20,13 +20,15 @@ import SignUpForm from "./components/auth/SignUpForm";
 import EnquiryFormModal from "./pages/EnquiryFormModal";
 import BlogPage from "./pages/BlogPage";
 import BlogDetail from "./pages/BlogDetail";
-
+import ChatBot from "./components/home/Chatbot";
+import CareerPage from "./pages/career/CareerPage";
 
 import AboutPage from "./pages/AboutPage"; 
 
 // for slider ke liye its doesnt affect
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 
 export default function App() {
   const { showAuthModal, authModalMode, closeAuthModal } = useAuth();
@@ -47,6 +49,7 @@ export default function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/video/:courseId/:videoIndex" element={<VideoPage />} />
           <Route path="/payment" element={<Payment />} />
+           <Route path="/careers" element={<CareerPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/about" element={<AboutPage />} />
@@ -58,7 +61,7 @@ export default function App() {
       <Footer />
 
        <EnquiryFormModal />
-
+       <ChatBot />
       {/* Global Auth Modal */}
       <Modal isOpen={showAuthModal} onClose={closeAuthModal}>
         {authModalMode === "signin" ? <SignInForm /> : <SignUpForm />}
